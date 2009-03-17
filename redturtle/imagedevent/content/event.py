@@ -74,7 +74,7 @@ class ImagedEvent(ATEvent):
 
     meta_type = "Event"
     schema = ImagedEventSchema
-
+    
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'tag')

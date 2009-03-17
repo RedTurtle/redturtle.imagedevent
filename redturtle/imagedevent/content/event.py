@@ -15,7 +15,7 @@ from Products.Archetypes.atapi import ImageField, ImageWidget, StringField, Stri
 from Products.Archetypes.atapi import AnnotationStorage
 
 from redturtle.imagedevent import imagedeventMessageFactory as _
-from redturtle.imagedevent.interfaces import IEvent
+from redturtle.imagedevent.interfaces import IImagedEvent
 from redturtle.imagedevent.config import PROJECTNAME
 
 from Products.ATContentTypes.configuration import zconf
@@ -70,15 +70,12 @@ schemata.finalizeATCTSchema(ImagedEventSchema, moveDiscussion=False)
 
 class ImagedEvent(ATEvent):
     """Information about an upcoming event, which can be displayed in the calendar."""
-    implements(IEvent)
+    implements(IImagedEvent)
 
     meta_type = "Event"
     schema = ImagedEventSchema
 
-    title = atapi.ATFieldProperty('title')
-    description = atapi.ATFieldProperty('description')
-    
-    security       = ClassSecurityInfo()
+    security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'tag')
     def tag(self, **kwargs):

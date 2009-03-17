@@ -6,11 +6,11 @@
   <class class=".event.ImagedEvent">
     <require
         permission="zope2.View"
-        interface="..interfaces.IEvent"
+        interface="..interfaces.IImagedEvent"
         />
     <require
         permission="cmf.ModifyPortalContent"
-        set_schema="..interfaces.IEvent"
+        set_schema="..interfaces.IImagedEvent"
         />
   </class>
 

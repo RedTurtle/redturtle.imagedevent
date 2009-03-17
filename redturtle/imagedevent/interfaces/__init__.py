@@ -1,2 +1,2 @@
-from event import IEvent
+from event import IImagedEvent
 

@@ -6,7 +6,7 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
-  <class class=".event.CCIAAEvent">
+  <class class=".event.ImagedEvent">
     <require
         permission="zope2.View"
         interface="..interfaces.IEvent"

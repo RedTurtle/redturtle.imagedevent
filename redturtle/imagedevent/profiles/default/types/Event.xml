@@ -8,15 +8,15 @@
  <property name="content_icon">event_icon.gif</property>
  <property name="content_meta_type">ATEvent</property>
  <property name="product">redturtle.imagedevent</property>
- <property name="factory">addCCIAAEvent</property>
+ <property name="factory">addImagedEvent</property>
  <property name="immediate_view">event_view</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">event_view</property>
+ <property name="default_view">imagedevent_view</property>
  <property name="view_methods">
-  <element value="event_view"/>
+  <element value="imagedevent_view"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>

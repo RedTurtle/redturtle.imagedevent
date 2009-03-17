@@ -5,6 +5,12 @@
 
   <include package="plone.app.contentmenu" />
 
-  <!-- -*- extra stuff goes here -*- -->
+    <browser:page
+      for="*"
+      name="imagedevent_view"
+      template="imagedevent_view.pt"
+      class=".event.ImagedEventView"
+      permission="zope2.View"
+      />
 
 </configure>

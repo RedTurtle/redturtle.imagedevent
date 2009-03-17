@@ -11,13 +11,12 @@ from Products.ATContentTypes.content.event import ATEventSchema
 
 from Products.CMFCore import permissions
 
-from Products.Archetypes.atapi import ImageField
-from Products.Archetypes.atapi import ImageWidget
+from Products.Archetypes.atapi import ImageField, ImageWidget, StringField, StringWidget
 from Products.Archetypes.atapi import AnnotationStorage
 
-from cciaa.contents import contentsMessageFactory as _
-from cciaa.contents.interfaces import IEvent
-from cciaa.contents.config import PROJECTNAME
+from redturtle.imagedevent import imagedeventMessageFactory as _
+from redturtle.imagedevent.interfaces import IEvent
+from redturtle.imagedevent.config import PROJECTNAME
 
 from Products.ATContentTypes.configuration import zconf
 from Products.validation.config import validation
@@ -27,7 +26,7 @@ from Products.validation import V_REQUIRED
 validation.register(MaxSizeValidator('checkNewsImageMaxSize',
                                      maxsize=zconf.ATNewsItem.max_file_size))
 
-CCIAAEventSchema = ATEventSchema.copy() + atapi.Schema((
+ImagedEventSchema = ATEventSchema.copy() + atapi.Schema((
 
     ImageField('image',
         required = False,
@@ -45,26 +44,36 @@ CCIAAEventSchema = ATEventSchema.copy() + atapi.Schema((
         validators = (('isNonEmptyFile', V_REQUIRED),
                              ('checkNewsImageMaxSize', V_REQUIRED)),
         widget = ImageWidget(
-            description = _(u'help_news_image', default=u'Will be shown in the news listing, and in the news item itself. Image will be scaled to a sensible size.'),
-            label= _(u'label_news_image', default=u'Image'),
+            description = _(u'help_imagedevent_image', default=u"Will be shown views that render content's images and in the event view itself"),
+            label= _(u'label_imagedevent_image', default=u'Image'),
             show_content_type = False)
+        ),
+
+    StringField('imageCaption',
+        required = False,
+        searchable = True,
+        widget = StringWidget(
+            description = '',
+            label = _(u'label_image_caption', default=u'Image Caption'),
+            size = 40)
         ),
 
 ))
 
-CCIAAEventSchema['title'].storage = atapi.AnnotationStorage()
-CCIAAEventSchema['description'].storage = atapi.AnnotationStorage()
+ImagedEventSchema['title'].storage = atapi.AnnotationStorage()
+ImagedEventSchema['description'].storage = atapi.AnnotationStorage()
 
-CCIAAEventSchema.moveField('image', after='text')
+ImagedEventSchema.moveField('image', after='text')
+ImagedEventSchema.moveField('imageCaption', after='image')
 
-schemata.finalizeATCTSchema(CCIAAEventSchema, moveDiscussion=False)
+schemata.finalizeATCTSchema(ImagedEventSchema, moveDiscussion=False)
 
-class CCIAAEvent(ATEvent):
+class ImagedEvent(ATEvent):
     """Information about an upcoming event, which can be displayed in the calendar."""
     implements(IEvent)
 
     meta_type = "Event"
-    schema = CCIAAEventSchema
+    schema = ImagedEventSchema
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
@@ -97,4 +106,4 @@ class CCIAAEvent(ATEvent):
 
         return ATEvent.__bobo_traverse__(self, REQUEST, name)
 
-atapi.registerType(CCIAAEvent, PROJECTNAME)
+atapi.registerType(ImagedEvent, PROJECTNAME)

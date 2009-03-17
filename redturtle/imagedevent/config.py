@@ -1,9 +1,7 @@
-"""Common configuration constants
-"""
+from Products.ATContentTypes.permission import permissions
 
 PROJECTNAME = 'redturtle.imagedevent'
 
 ADD_PERMISSIONS = {
-    # -*- extra stuff goes here -*-
-    'Event': 'redturtle.imagedevent: Add Event',
+    'ImagedEvent': permissions['Event']
 }

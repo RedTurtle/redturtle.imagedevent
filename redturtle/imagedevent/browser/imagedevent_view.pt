@@ -168,7 +168,8 @@
         </table>
 		
         <div tal:omit-tag=""
-             tal:condition="here/image_mini|nothing">
+		     tal:define="image_mini here/image_mini|nothing"
+             tal:condition="python:image_mini and len(image_mini)>1">
             <a href="#"
                tal:attributes="href string:$here_url/image/image_view_fullscreen"
                id="parent-fieldname-image">

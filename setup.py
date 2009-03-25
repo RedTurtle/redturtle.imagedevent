@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.1.0'
+version = '0.2.0'
 
 tests_require=['zope.testing']
 
@@ -24,7 +24,7 @@ setup(name='redturtle.imagedevent',
         ],
       keywords='plone event image content',
       author='RedTurtle Technology',
-      author_email='plonedevel@redturtle.net',
+      author_email='sviluppoplone@redturtle.net',
       url='http://svn.plone.org/svn/collective/redturtle.imagedevent',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.2.0
+-----
+
+* fixed immediate_view
+
 0.1.0
 -----
 

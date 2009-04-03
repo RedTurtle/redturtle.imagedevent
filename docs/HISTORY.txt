@@ -1,13 +1,18 @@
 Changelog
 =========
 
+0.3.0
+-----
+
+* Fixed the meta_type name in the class.
+
 0.2.0
 -----
 
-* fixed immediate_view
+* fixed immediate_view.
 
 0.1.0
 -----
 
-* Initial release
+* Initial release.
 

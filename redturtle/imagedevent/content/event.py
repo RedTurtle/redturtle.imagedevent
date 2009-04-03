@@ -72,7 +72,7 @@ class ImagedEvent(ATEvent):
     """Information about an upcoming event, which can be displayed in the calendar."""
     implements(IImagedEvent)
 
-    meta_type = "Event"
+    meta_type = "ATEvent"
     schema = ImagedEventSchema
     
     security = ClassSecurityInfo()

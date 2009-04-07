@@ -5,9 +5,10 @@ Changelog
 -----
 
 * Fixed the meta_type name in the class.
+  This bug can brake reordering of Plone in folder with ImagedEvent inside
 
-0.2.0
------
+0.2.0 - Unreleased
+------------------
 
 * fixed immediate_view.
 

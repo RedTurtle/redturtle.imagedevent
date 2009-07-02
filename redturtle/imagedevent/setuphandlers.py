@@ -9,7 +9,8 @@ def setupVarious(context):
     if context.readDataFile('redturtle.imagedevent_various.txt') is None: 
         return
     
-    backupATEvent(portal)
+    # Disabled: have the old portal_type in the types_tool duplicate "Event" choice in some places
+    #backupATEvent(portal)
 
 def backupATEvent(portal):
     """Make a backup of ATEvent before the types.xml step overwrite it"""

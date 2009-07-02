@@ -39,6 +39,23 @@
 
             <tbody>
 
+				<td colspan="2" class="event-image">
+			        <div tal:omit-tag=""
+					     tal:define="image_mini here/image_mini|nothing"
+			             tal:condition="python:image_mini">
+			            <a href="#"
+			               tal:attributes="href string:$here_url/image/image_view_fullscreen"
+			               id="parent-fieldname-image">
+			               <img tal:replace="structure python: here.tag(scale='mini', css_class='newsImage')" src="" alt="" />
+			            </a>
+			            <p class="discreet">
+			              <metal:field use-macro="python:here.widget('imageCaption', mode='view')">
+			              Image Caption
+			              </metal:field>
+			            </p>
+			        </div>
+				</td>
+
                 <tr>
                     <th i18n:translate="event_what">What</th>
                     <td>
@@ -166,21 +183,6 @@
                 </tr>
             </tbody>
         </table>
-		
-        <div tal:omit-tag=""
-		     tal:define="image_mini here/image_mini|nothing"
-             tal:condition="python:image_mini">
-            <a href="#"
-               tal:attributes="href string:$here_url/image/image_view_fullscreen"
-               id="parent-fieldname-image">
-               <img tal:replace="structure python: here.tag(scale='mini', css_class='newsImage')" src="" alt="" />
-            </a>
-            <p class="discreet">
-              <metal:field use-macro="python:here.widget('imageCaption', mode='view')">
-              Image Caption
-              </metal:field>
-            </p>
-        </div>
 		
         </div>
 

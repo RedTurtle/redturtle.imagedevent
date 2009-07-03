@@ -4,7 +4,7 @@ Changelog
 0.4.1
 -----
 
-* metadata.xml fised: contains wrong product version name.
+* metadata.xml fixed: contains wrong product version name.
 
 0.4.0
 -----

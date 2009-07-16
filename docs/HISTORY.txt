@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.4.2
+-----
+
+* The whole image cell is now hidden if no images updated. [keul]
+
 0.4.1
 -----
 

@@ -39,10 +39,10 @@
 
             <tbody>
 
-				<td colspan="2" class="event-image">
-			        <div tal:omit-tag=""
-					     tal:define="image_mini here/image_mini|nothing"
-			             tal:condition="python:image_mini">
+				<td colspan="2" class="event-image"
+				    tal:define="image_mini here/image_mini|nothing"
+			        tal:condition="python:image_mini">
+			        <div tal:omit-tag="">
 			            <a href="#"
 			               tal:attributes="href string:$here_url/image/image_view_fullscreen"
 			               id="parent-fieldname-image">

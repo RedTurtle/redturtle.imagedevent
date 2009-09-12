@@ -67,6 +67,9 @@ ImagedEventSchema.moveField('image', after='text')
 ImagedEventSchema.moveField('imageCaption', after='image')
 
 schemata.finalizeATCTSchema(ImagedEventSchema, moveDiscussion=False)
+# finalizeATCTSchema moves 'location' into 'categories', we move it back:
+ImagedEventSchema.changeSchemataForField('location', 'default')
+ImagedEventSchema.moveField('location', before='startDate')
 
 class ImagedEvent(ATEvent):
     """Information about an upcoming event, which can be displayed in the calendar."""

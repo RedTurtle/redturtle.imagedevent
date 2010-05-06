@@ -23,6 +23,10 @@ from Products.validation.config import validation
 from Products.validation.validators.SupplValidators import MaxSizeValidator
 from Products.validation import V_REQUIRED
 
+from Products.ATContentTypes.permission import ChangeEvents
+from types import StringType
+from Products.CMFCore.permissions import ModifyPortalContent
+
 validation.register(MaxSizeValidator('checkNewsImageMaxSize',
                                      maxsize=zconf.ATNewsItem.max_file_size))
 
@@ -62,6 +66,9 @@ ImagedEventSchema = ATEventSchema.copy() + atapi.Schema((
 
 ImagedEventSchema['title'].storage = atapi.AnnotationStorage()
 ImagedEventSchema['description'].storage = atapi.AnnotationStorage()
+ImagedEventSchema['subject'].widget.visible = {'edit': 'visible'}
+ImagedEventSchema['subject'].mode = 'wr'
+
 
 ImagedEventSchema.moveField('image', after='text')
 ImagedEventSchema.moveField('imageCaption', after='image')
@@ -106,4 +113,27 @@ class ImagedEvent(ATEvent):
 
         return ATEvent.__bobo_traverse__(self, REQUEST, name)
 
+    security.declareProtected(ChangeEvents, 'setEventType')
+    def setEventType(self, value, alreadySet=False, **kw):
+        """CMF compatibility method
+
+        Changing the event type.
+        """
+        if type(value) is StringType:
+            value = (value,)
+        elif not value:
+            # mostly harmless?
+            value = ()
+        f = self.getField('eventType')
+        f.set(self, value, **kw) # set is ok
+
+    security.declareProtected(ModifyPortalContent, 'setSubject')
+    def setSubject(self, value, **kw):
+        """CMF compatibility method
+
+        Changing the subject.
+        """
+        f = self.getField('subject')
+        f.set(self, value, **kw) # set is ok
+    
 atapi.registerType(ImagedEvent, PROJECTNAME)

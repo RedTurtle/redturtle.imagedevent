@@ -59,9 +59,10 @@
                 <tr>
                     <th i18n:translate="event_what">What</th>
                     <td>
-                        <metal:field use-macro="python:here.widget('subject', mode='view')">
+                        <metal:field use-macro="python:here.widget('eventType', mode='view')">
                         Categories
                         </metal:field>
+						cxcd
                     </td>
                 </tr>
                 <tr>

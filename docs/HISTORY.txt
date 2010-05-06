@@ -4,8 +4,8 @@ Changelog
 0.5.0
 -----
 
-* separated keywords subject and eventType for events [andrea]
-* created getEventType metadata and criteria [andrea]
+* separated keywords subject and eventType for events [micecchi]
+* created getEventType metadata and criteria [micecchi]
 
 0.4.2
 -----

@@ -9,13 +9,3 @@
   </index>
  </topic_indexes>
 </atcttool>
-
-
-self.context.setSubject('')
-old=self.context.ModificationDate()
-self.context.ModificationDate= old
-self.context.reindexObject(idxs=['Subject'])
-
-delattr(self.context, 'ModificationDate')
-self.context.setModificationDate
-self.context.setModificationDate(old)

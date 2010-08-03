@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.6.0
+-----
+
+* Add upgradeStep for remove keywords 'type of event' from the categories [fdelia]
+* Add column metadata for type of event [fdelia]
+* Add translation for column metadata e indexes in Collection [fdelia]
+
 0.5.1
 -----
 

@@ -19,7 +19,15 @@
       description="A redefinition of the Plone Event content type, having an image field like News Item"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-  
-  <!-- -*- extra stuff goes here -*- -->
+      
+  <genericsetup:upgradeStep
+        title="Upgrade Imaged event"
+        description="Migrates Imaged event to version 0.6.x"
+        source="*"
+        destination="0.6.0"
+        handler=".migration.migrateTo05"
+        sortkey="1"
+        profile="redturtle.imagedevent:default"
+    />
 
 </configure>

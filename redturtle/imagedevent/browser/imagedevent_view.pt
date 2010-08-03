@@ -62,7 +62,6 @@
                         <metal:field use-macro="python:here.widget('eventType', mode='view')">
                         Categories
                         </metal:field>
-						cxcd
                     </td>
                 </tr>
                 <tr>

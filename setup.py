@@ -25,7 +25,7 @@ setup(name='redturtle.imagedevent',
       keywords='plone event image content',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.net',
-      url='http://svn.plone.org/svn/collective/redturtle.imagedevent',
+      url='http://plone.org/products/redturtle.imagedevent',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['redturtle', ],
@@ -39,11 +39,8 @@ setup(name='redturtle.imagedevent',
       test_suite = 'redturtle.imagedevent.tests.test_docs.test_suite',
       entry_points="""
       # -*- entry_points -*- 
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       paster_plugins = ["ZopeSkel"],
       )

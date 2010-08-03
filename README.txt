@@ -3,31 +3,38 @@ Imaged event
 
 An enhanced version of the base Plone event content type.
 
+Image field
+-----------
+
 After intalling this you'll see that the Plone event will have a new **image field** and **caption**
 like the News Item content type.
 
 As News Item do, the event now behave **image resize** functionality.
 
-Warning!
---------
+Event type field
+----------------
 
-Imaged event shapechange itself and hide from portal_types tool the basic Plone Event type!
+It this kind of event the *Subject* and *Event type* fields has been splitted and are now two
+distinct data.
 
-FileSystemStorage
------------------
+If you are using an older version of this product, you can run the proper upgrade step to fix all
+old values.
 
-The product try to register the event image field onto `iw.fss`__ if it is installed.
+Credits
+=======
 
-__ http://pypi.python.org/pypi/iw.fss
+Developed with the support of `Camera di Commercio di Ferrara`__; Camera di Commercio supports
+the `PloneGov initiative`__.
 
-References
-----------
+__ http://www.fe.camcom.it/
+__ http://www.plonegov.it/
 
-* Code repository: http://svn.plone.org/svn/collective/redturtle.imagedevent/
-* Questions? Comments? Found a bug? *sviluppoplone AT redturtle.net*
+Authors
+=======
 
-Wanna help?
------------
+This product was developed by RedTurtle Technology team.
 
-Send us other translations!
+.. image:: http://www.redturtle.net/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.net/
 

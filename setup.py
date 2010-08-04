@@ -22,7 +22,7 @@ setup(name='redturtle.imagedevent',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
-      keywords='plone event image content',
+      keywords='plone event image content plonegov',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.net',
       url='http://plone.org/products/redturtle.imagedevent',
@@ -42,5 +42,4 @@ setup(name='redturtle.imagedevent',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      paster_plugins = ["ZopeSkel"],
       )

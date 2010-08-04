@@ -12,7 +12,7 @@ tests_require=['zope.testing']
 
 setup(name='redturtle.imagedevent',
       version=version,
-      description="A redefinition of the Plone Event content type, having an image field like News Item",
+      description="An alternative version of Event content type for Plone, with an image field like News Item",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers

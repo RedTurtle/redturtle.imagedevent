@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.7.0 (Unreleased)
+------------------
+
+* z3c.autoinclude support [keul]
+* egg cleaned [keul]
+
 0.6.0 (2010-08-03)
 ------------------
 

@@ -20,6 +20,18 @@ distinct data.
 If you are using an older version of this product, you can run the proper upgrade step to fix all
 old values.
 
+Plone 4
+=======
+
+The product is stable and heavily used in production on Plone 3.3. Plone 4 compatibility has been
+provided but is still *beta*.
+
+TODO
+====
+
+* Better Plone 4 compatibility
+* Fixing schema difference from Plone 3 and Plone 4
+
 Credits
 =======
 

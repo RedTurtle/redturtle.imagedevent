@@ -3,7 +3,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.7.0dev'
+version = '1.0.0rc1'
 
 tests_require=['zope.testing']
 

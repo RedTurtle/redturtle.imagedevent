@@ -11,7 +11,8 @@
     <tal:main-macro metal:define-macro="main" 
          tal:define="kssClassesView context/@@kss_field_decorator_view;
                      getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
-                     templateId template/getId">
+                     templateId template/getId;
+					 plone_view nocall:context/@@plone;">
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
@@ -43,7 +44,7 @@
 				    tal:condition="python:image_mini">
 					<td colspan="2" class="eventImageContainer">
 			            <a href="#"
-			               tal:attributes="href string:$here_url/image/image_view_fullscreen"
+			               tal:attributes="href string:${context/absolute_url}/image/image_view_fullscreen"
 			               id="parent-fieldname-image">
 			               <img tal:replace="structure python: here.tag(scale='mini', css_class='eventImage')" />
 			            </a>
@@ -55,7 +56,7 @@
 					</td>
                 </tr>
 
-                <tr>
+                <tr tal:on-error="structure string:&lt;!-- no event type --&gt;">
                     <th i18n:translate="event_what">What</th>
                     <td>
                         <metal:field use-macro="python:here.widget('eventType', mode='view')">
@@ -75,8 +76,7 @@
                                                   title python:here.start().ISO8601()">
                                   <span metal:define-slot="inside" 
                                         class="explain"
-                                        tal:content="python:here.toLocalizedTime(here.start(),
-                                        long_format=1)">Start Date Time</span>
+                                        tal:content="python:plone_view.toLocalizedTime(here.start(), long_format=1)">Start Date Time</span>
                             </abbr>
                             <span i18n:translate="event_to">to</span> <br />
                             <abbr metal:define-macro="enddate-field-view"
@@ -87,14 +87,13 @@
                                                   title python:here.end().ISO8601()">
                                   <span metal:define-slot="inside" 
                                           class="explain"
-                                          tal:content="python:here.toLocalizedTime(here.end(),
-                                          long_format=1)">End Date Time</span>
+                                          tal:content="python:plone_view.toLocalizedTime(here.end(), long_format=1)">End Date Time</span>
                             </abbr>
                         </tal:differentday>
 
                         <tal:sameday tal:condition="python:here.start().Date() == here.end().Date()"
                                      tal:define="ampm python:site_properties.getProperty('localLongTimeFormat').find('%p') >= 0">
-                            <span tal:replace="python:toLocalizedTime(here.start())">
+                            <span tal:replace="python:plone_view.toLocalizedTime(here.start())">
                                 Start Date Time</span> <br />
                             <span i18n:translate="event_from">from</span>  
                             <abbr metal:define-macro="startdatesame-field-view"
@@ -105,7 +104,7 @@
                                                   title python:here.start().ISO8601()">
                                   <span metal:define-slot="inside" 
                                         class="explain"
-                                        tal:content="python:here.toLocalizedTime(here.start(), time_only=1)">Start Time</span>
+                                        tal:content="python:plone_view.toLocalizedTime(here.start(), time_only=1)">Start Time</span>
                             </abbr>
                             <span i18n:translate="event_to">to</span>
                             <abbr metal:define-macro="enddatesame-field-view"
@@ -116,7 +115,7 @@
                                                   title python:here.end().ISO8601()">
                                   <span metal:define-slot="inside" 
                                         class="explain"
-                                        tal:content="python:here.toLocalizedTime(here.end(), time_only=1)">End Time</span>
+                                        tal:content="python:plone_view.toLocalizedTime(here.end(), time_only=1)">End Time</span>
                             </abbr>
                             
                             <!-- <span tal:replace="python:test(ampm, here.end().AMPMMinutes(), here.end().TimeMinutes())">End Time</span> -->
@@ -167,13 +166,13 @@
                     <th i18n:translate="heading_add_to_calendar">Add event to calendar</th>
                     <td>
                         <a href="#"
-                           tal:attributes="href string:$here_url/vcs_view"
+                           tal:attributes="href string:${context/absolute_url}/vcs_view"
                            title="Download this event in vCal format"
                            i18n:attributes="title title_add_to_vcal;">
                             <img tal:replace="structure here/icon_export_vcal.png" src="" alt="" />
                             <span i18n:translate="label_add_to_vcal">vCal</span></a><br />
                         <a href="#"
-                           tal:attributes="href string:$here_url/ics_view"
+                           tal:attributes="href string:${context/absolute_url}/ics_view"
                            title="Download this event in iCal format"
                            i18n:attributes="title title_add_to_ical;">
                             <img tal:replace="structure here/icon_export_ical.png" src="" alt="" />

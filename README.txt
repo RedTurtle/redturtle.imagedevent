@@ -23,8 +23,8 @@ old values.
 Plone 4
 =======
 
-The product is stable and heavily used in production on Plone 3.3. Plone 4 compatibility has been
-provided but is still *beta*.
+The product is *stable*, and heavily used in production, on Plone 3.3. Plone 4 compatibility
+has been provided but is still *beta* and not so tested.
 
 TODO
 ====

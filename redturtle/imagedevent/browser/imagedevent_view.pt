@@ -39,22 +39,21 @@
 
             <tbody>
 
-				<td colspan="2" class="event-image"
-				    tal:define="image_mini here/image_mini|nothing"
-			        tal:condition="python:image_mini">
-			        <div tal:omit-tag="">
+                <tr tal:define="image_mini here/image_mini|nothing"
+				    tal:condition="python:image_mini">
+					<td colspan="2" class="eventImageContainer">
 			            <a href="#"
 			               tal:attributes="href string:$here_url/image/image_view_fullscreen"
 			               id="parent-fieldname-image">
-			               <img tal:replace="structure python: here.tag(scale='mini', css_class='newsImage')" src="" alt="" />
+			               <img tal:replace="structure python: here.tag(scale='mini', css_class='eventImage')" />
 			            </a>
 			            <p class="discreet">
 			              <metal:field use-macro="python:here.widget('imageCaption', mode='view')">
 			              Image Caption
 			              </metal:field>
 			            </p>
-			        </div>
-				</td>
+					</td>
+                </tr>
 
                 <tr>
                     <th i18n:translate="event_what">What</th>

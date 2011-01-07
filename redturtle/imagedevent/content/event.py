@@ -48,8 +48,8 @@ ImagedEventSchema = ATEventSchema.copy() + atapi.Schema((
         validators = (('isNonEmptyFile', V_REQUIRED),
                              ('checkNewsImageMaxSize', V_REQUIRED)),
         widget = ImageWidget(
-            description = _(u'help_imagedevent_image', default=u"Will be shown views that render content's images and in the event view itself"),
             label= _(u'label_imagedevent_image', default=u'Image'),
+            description = _(u'help_imagedevent_image', default=u"Will be shown views that render content's images and in the event view itself"),
             show_content_type = False)
         ),
 
@@ -86,6 +86,21 @@ class ImagedEvent(ATEvent):
     schema = ImagedEventSchema
     
     security = ClassSecurityInfo()
+
+    security.declareProtected(permissions.View, 'size')
+    def size(self):
+        """Get size of the image
+        """
+        return self.get_size()
+
+    security.declareProtected(permissions.View, 'get_size')
+    def get_size(self):
+        """ZMI / Plone get size method
+        """
+        f = self.getField('image')
+        if f is None:
+            return 0
+        return f.get_size(self) or 0
 
     security.declareProtected(permissions.View, 'tag')
     def tag(self, **kwargs):

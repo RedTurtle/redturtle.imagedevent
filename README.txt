@@ -23,8 +23,10 @@ old values.
 Plone 4
 =======
 
-The product is *stable*, and heavily used in production, on Plone 3.3. Plone 4 compatibility
-has been provided but is still *beta* and not so tested.
+The product is *stable*, and heavily used in production, on Plone 3.3.
+
+Plone 4 compatibility has been provided but is still *beta* and not so tested. Plone 4 has changed
+some stuff in the Event schema so not al features of image event are there.
 
 TODO
 ====

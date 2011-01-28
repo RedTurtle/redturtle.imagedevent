@@ -59,15 +59,19 @@
                 <tr tal:on-error="structure string:&lt;!-- no event type --&gt;">
                     <th i18n:translate="event_what">What</th>
                     <td>
-                        <metal:field use-macro="python:here.widget('eventType', mode='view')">
-                        Categories
-                        </metal:field>
+                        <ul tal:define="evTypes context/getEventType"
+						    tal:omit-tag="python:len(evTypes)==1"
+						    tal:condition="evTypes">
+                        	<li tal:repeat="evType evTypes" tal:omit-tag="python:len(evTypes)==1" tal:content="evType">
+                        		Meeting
+							</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
                     <th i18n:translate="event_when">When</th>
                     <td>
-                        <tal:differentday tal:condition="python:not here.start().Date() == here.end().Date()">
+                        <tal:differentday tal:condition="python:not context.start().Date() == context.end().Date()">
                             <abbr metal:define-macro="startdate-field-view"
                                   tal:define="kss_class python:getKssClasses('startDate',
                                               templateId=templateId, macro='startdate-field-view');"

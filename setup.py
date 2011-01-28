@@ -3,13 +3,14 @@
 import os
 from setuptools import setup, find_packages
 
-version = '1.0.0b1'
+version = '1.0.0b2'
 
 tests_require=['zope.testing']
 
 setup(name='redturtle.imagedevent',
       version=version,
-      description="An alternative version of Event content type for Plone, with an image field like News Item",
+      description="An alternative to the Event content type for Plone, with image field and "
+                  "separate keyword and event type fields.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers

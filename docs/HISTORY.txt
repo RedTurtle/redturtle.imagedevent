@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.0b3 (Unreleased)
+--------------------
+
+* Added a check in migrator, if plone.app.blob is not installed, but contentmigration is [keul]
+
 1.0.0b2 (2011-01-28)
 --------------------
 

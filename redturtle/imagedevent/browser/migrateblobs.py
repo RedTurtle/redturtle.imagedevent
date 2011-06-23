@@ -2,7 +2,10 @@
 
 from zope.interface import Interface
 from zope.formlib import form
-from Products.Five.formlib import formbase
+try:
+    from Products.Five.formlib import formbase
+except ImportError:
+    from five.formlib import formbase
 from Products.statusmessages.interfaces import IStatusMessage
 
 from redturtle.imagedevent import imagedeventMessageFactory as _

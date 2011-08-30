@@ -1,11 +1,12 @@
 Changelog
 =========
 
-1.0.0b3 (Unreleased)
---------------------
+1.0.0rc1 (Unreleased)
+---------------------
 
 * Added a check in migrator, if plone.app.blob is not installed, but contentmigration is [keul]
 * Fixed import for `Plone 4.1 compatibility`__ [keul]
+* Restored the ``eventType`` field, removed in Plone 4 [keul]
 
 __ http://plone.org/documentation/manual/upgrade-guide/version/upgrading-plone-4.0-to-4.1/updating-add-on-products-for-plone-4.1/changing-dependencies-from-plone-to-products.cmfplone
 
@@ -13,7 +14,7 @@ __ http://plone.org/documentation/manual/upgrade-guide/version/upgrading-plone-4
 --------------------
 
 * fixed XHTML Strict problem when no "What" (event type) has been provided [keul]
-* removed some other "*here*" reverences in the template, that break on Plone 4 [keul]
+* removed some other "*here*" references in the template, that break on Plone 4 [keul]
 
 1.0.0b1 (2011-01-10)
 --------------------

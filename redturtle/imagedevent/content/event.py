@@ -1,7 +1,7 @@
 """Definition of the Event content type
 """
 
-from zope.interface import implements, directlyProvides
+from zope.interface import implements
 from AccessControl import ClassSecurityInfo
 
 from Products.Archetypes import atapi
@@ -9,12 +9,10 @@ from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.event import ATEventSchema
 
-from Products.CMFCore import permissions
-
-from Products.Archetypes.atapi import ImageField, ImageWidget, StringField, StringWidget
-from Products.Archetypes.atapi import AnnotationStorage
-
 from redturtle.imagedevent import imagedeventMessageFactory as _
+from Products.ATContentTypes import ATCTMessageFactory as atct_m
+from Products.Archetypes import PloneMessageFactory as at_m
+
 from redturtle.imagedevent.interfaces import IImagedEvent
 from redturtle.imagedevent.config import PROJECTNAME
 
@@ -25,16 +23,29 @@ from Products.validation import V_REQUIRED
 
 from Products.ATContentTypes.permission import ChangeEvents
 from types import StringType
-from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore import permissions
 
 validation.register(MaxSizeValidator('checkNewsImageMaxSize',
                                      maxsize=zconf.ATNewsItem.max_file_size))
 
 ImagedEventSchema = ATEventSchema.copy() + atapi.Schema((
 
-    ImageField('image',
+    # *** from the old ATCT event ***
+    atapi.LinesField('eventType',
+               required=False,
+               searchable=True,
+               write_permission = ChangeEvents,
+               languageIndependent=True,
+               widget = atapi.KeywordWidget(
+                        size = 6,
+                        description='',
+                        label = atct_m(u'label_event_type', default=u'Event Type(s)')
+                        )),
+
+    # *** Images field ***
+    atapi.ImageField('image',
         required = False,
-        storage = AnnotationStorage(migrate=True),
+        storage = atapi.AnnotationStorage(migrate=True),
         languageIndependent = True,
         max_size = zconf.ATNewsItem.max_image_dimension,
         sizes= {'large'   : (768, 768),
@@ -47,16 +58,16 @@ ImagedEventSchema = ATEventSchema.copy() + atapi.Schema((
                },
         validators = (('isNonEmptyFile', V_REQUIRED),
                              ('checkNewsImageMaxSize', V_REQUIRED)),
-        widget = ImageWidget(
+        widget = atapi.ImageWidget(
             label= _(u'label_imagedevent_image', default=u'Image'),
             description = _(u'help_imagedevent_image', default=u"Will be shown views that render content's images and in the event view itself"),
             show_content_type = False)
         ),
 
-    StringField('imageCaption',
+    atapi.StringField('imageCaption',
         required = False,
         searchable = True,
-        widget = StringWidget(
+        widget = atapi.StringWidget(
             description = '',
             label = _(u'label_image_caption', default=u'Image Caption'),
             size = 40)
@@ -68,7 +79,9 @@ ImagedEventSchema['title'].storage = atapi.AnnotationStorage()
 ImagedEventSchema['description'].storage = atapi.AnnotationStorage()
 ImagedEventSchema['subject'].widget.visible = {'edit': 'visible'}
 ImagedEventSchema['subject'].mode = 'wr'
+ImagedEventSchema['subject'].widget.label = at_m(u'label_categories', default=u'Categories')
 
+ImagedEventSchema.moveField('eventType', after='attendees')
 
 ImagedEventSchema.moveField('image', after='text')
 ImagedEventSchema.moveField('imageCaption', after='image')
@@ -142,7 +155,7 @@ class ImagedEvent(ATEvent):
         f = self.getField('eventType')
         f.set(self, value, **kw) # set is ok
 
-    security.declareProtected(ModifyPortalContent, 'setSubject')
+    security.declareProtected(permissions.ModifyPortalContent, 'setSubject')
     def setSubject(self, value, **kw):
         """CMF compatibility method
 

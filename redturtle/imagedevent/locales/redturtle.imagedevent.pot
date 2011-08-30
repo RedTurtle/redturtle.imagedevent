@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-07 15:16+0000\n"
+"POT-Creation-Date: 2011-08-30 14:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,36 +17,39 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: redturtle.imagedevent\n"
 
-#: ./browser/migrateblobs.py:17
+msgid "A replacement of the Event content type for Plone, with image field and separate keyword and event type fields."
+msgstr ""
+
+#: ../browser/migrateblobs.py:20
 msgid "Blobs Migration"
 msgstr ""
 
-#: ./browser/migrateblobs.py:26
+#: ../browser/migrateblobs.py:29
 msgid "Cancel"
 msgstr ""
 
-#: ./browser/migrateblobs.py:20
+#: ../browser/migrateblobs.py:23
 msgid "Migrate Event images"
 msgstr ""
 
-#: ./browser/migrateblobs.py:18
+#: ../browser/migrateblobs.py:21
 msgid "Migrate imaged event, making it use plone.app.blob"
 msgstr ""
 
 #. Default: "Will be shown views that render content's images and in the event view itself"
-#: ./content/event.py:52
-#: ./extender.py:46
+#: ../content/event.py:63
+#: ../extender.py:46
 msgid "help_imagedevent_image"
 msgstr ""
 
 #. Default: "Image Caption"
-#: ./content/event.py:61
+#: ../content/event.py:72
 msgid "label_image_caption"
 msgstr ""
 
 #. Default: "Image"
-#: ./content/event.py:51
-#: ./extender.py:45
+#: ../content/event.py:62
+#: ../extender.py:45
 msgid "label_imagedevent_image"
 msgstr ""
 

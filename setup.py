@@ -9,7 +9,7 @@ tests_require=['zope.testing']
 
 setup(name='redturtle.imagedevent',
       version=version,
-      description="An replacement of the Event content type for Plone, with image field and "
+      description="A replacement of the Event content type for Plone, with image field and "
                   "separate keyword and event type fields.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),

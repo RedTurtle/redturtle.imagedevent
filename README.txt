@@ -25,8 +25,8 @@ old values.
 Plone versions
 --------------
 
-Plone 4 completely removed the ``eventType`` field from the Event schema. This product wil restore it.
-Still this is done to work onto Plone 3.3.
+Plone 4 completely removed the ``eventType`` field from the Event schema. This product will restore it.
+Still, those changes are compatible also with old Plone 3.3 release.
 
 Credits
 =======

@@ -1,6 +1,19 @@
 Changelog
 =========
 
+1.0.0 (Unreleased)
+------------------
+
+* Minor visual fixes for Sunburst compatibility [keul]
+* i18n translation of "subject" field was not working anymore [keul]
+* Event Generic Setup registration aligned to Plone 4 style
+  (Plone 3 will require `experimental.backportGS`__ to continue working)
+  [keul]
+
+  __ http://pypi.python.org/pypi/experimental.backportGS
+
+* pyflakes cleanup [keul]
+
 1.0.0rc1 (2011-08-30)
 ---------------------
 

@@ -79,7 +79,7 @@ ImagedEventSchema['title'].storage = atapi.AnnotationStorage()
 ImagedEventSchema['description'].storage = atapi.AnnotationStorage()
 ImagedEventSchema['subject'].widget.visible = {'edit': 'visible'}
 ImagedEventSchema['subject'].mode = 'wr'
-ImagedEventSchema['subject'].widget.label = at_m(u'label_categories', default=u'Categories')
+ImagedEventSchema['subject'].widget.label = at_m(u'label_tags', default=u'Tags')
 
 ImagedEventSchema.moveField('eventType', after='attendees')
 

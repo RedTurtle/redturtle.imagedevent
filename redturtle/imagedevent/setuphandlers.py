@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from zope import component
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import getFSVersionTuple
-from redturtle.imagedevent.Extensions.install import unregisterIcon
 
 import logging
 PROFILE_ID = 'profile-redturtle.imagedevent:default'
@@ -62,7 +59,12 @@ def migrateTo100rc1(context, logger=None):
         logger = logging.getLogger('redturtle.imagedevent')
     setup_tool = getToolByName(context, 'portal_setup')
     setup_tool.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
-    if getFSVersionTuple()[0]>=4:
-        unregisterIcon(context)
     addKeyToCatalog(context, logger)
     logger.info("Migrated to 1.0.0rc1")
+
+def migrateTo1000(context, logger=None):
+    if logger is None:
+        logger = logging.getLogger('redturtle.imagedevent')
+    setup_tool = getToolByName(context, 'portal_setup')
+    setup_tool.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
+    logger.info("Migrated to 1.0.0")

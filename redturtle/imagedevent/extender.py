@@ -13,9 +13,6 @@ from archetypes.schemaextender.field import ExtensionField
 from interfaces import IImagedEvent
 from redturtle.imagedevent import imagedeventMessageFactory as _
 
-from zope.publisher.interfaces import IPublishTraverse
-from zope.publisher.interfaces.http import IHTTPRequest
-from ZPublisher.BaseRequest import DefaultPublishTraverse
 from Products.validation import V_REQUIRED
 
 from plone.app.blob.field import ImageField as BlobImageField
@@ -58,29 +55,3 @@ class ImageExtender(object):
     def getFields(self):
         return self.fields
 
-"""
-class LeadImageTraverse(DefaultPublishTraverse):
-    implements(IPublishTraverse)
-    adapts(ILeadImageable, IHTTPRequest)
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def publishTraverse(self, request, name):
-        if name.startswith(IMAGE_FIELD_NAME):
-            field = self.context.getField(IMAGE_FIELD_NAME)
-            if field is not None:
-                image = None
-                if name == IMAGE_FIELD_NAME:
-                    image = field.getScale(self.context)
-                else:
-                    scalename = name[len(IMAGE_FIELD_NAME + '_'):]
-                    if scalename in field.getAvailableSizes(self.context):
-                        image = field.getScale(self.context, scale=scalename)
-                if image is not None and not isinstance(image, basestring):
-                    # image might be None or '' for empty images
-                    return image
-
-        return super(LeadImageTraverse, self).publishTraverse(request, name)
-"""

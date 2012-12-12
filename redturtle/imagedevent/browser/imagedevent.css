@@ -13,3 +13,7 @@ td.eventImageContainer {
 .eventDetails {
 	max-width:40%;
 }
+
+#content .eventDetails table {
+	margin-bottom: 0;
+}

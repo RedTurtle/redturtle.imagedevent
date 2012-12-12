@@ -11,8 +11,8 @@ setup(name='redturtle.imagedevent',
       version=version,
       description="A replacement of the Event content type for Plone, with image field and "
                   "separate keyword and event type fields.",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         'Framework :: Plone',

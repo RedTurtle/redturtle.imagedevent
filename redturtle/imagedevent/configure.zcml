@@ -16,7 +16,12 @@
     <include package="archetypes.schemaextender" />
     <adapter factory=".extender.ImageExtender" />
   </configure>
-  
+
+  <utility
+    component=".vocabularies.EventTypeVocabularyFactory"
+    name="redturtle.imagedevent.vocabularies.EventTypes"
+    />
+
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"

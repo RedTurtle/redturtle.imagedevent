@@ -13,6 +13,7 @@ Changelog
   __ http://pypi.python.org/pypi/experimental.backportGS
 
 * pyflakes cleanup [keul]
+* added support for new style collections [keul]
 
 1.0.0rc1 (2011-08-30)
 ---------------------

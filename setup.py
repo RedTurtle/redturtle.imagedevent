@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import os
+import os, sys
 from setuptools import setup, find_packages
 
-version = '1.0.0rc1'
+version = '1.0.0'
+
+install_requires = ['setuptools',
+                    'archetypes.schemaextender']
+
+if sys.version_info < (2, 6):
+    install_requires.append('experimental.backportGS')
 
 tests_require=['zope.testing']
 
@@ -33,9 +39,7 @@ setup(name='redturtle.imagedevent',
       namespace_packages=['redturtle', ],
       include_package_data=True,
       zip_safe=False,
-      install_requires=['setuptools',
-                        'archetypes.schemaextender'
-                        ],
+      install_requires=install_requires,
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite = 'redturtle.imagedevent.tests.test_docs.test_suite',

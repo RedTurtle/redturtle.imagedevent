@@ -13,7 +13,8 @@ Changelog
   __ http://pypi.python.org/pypi/experimental.backportGS
 
 * pyflakes cleanup [keul]
-* added support for new style collections [keul]
+* added support for new style collections when on Plone 4.2 [keul]
+* removed the bad use of *setBaselineContext* when installing/uninstalling [keul]
 
 1.0.0rc1 (2011-08-30)
 ---------------------

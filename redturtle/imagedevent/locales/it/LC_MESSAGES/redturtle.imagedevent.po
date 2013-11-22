@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-12-12 16:25+0000\n"
+"POT-Creation-Date: 2013-11-22 10:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Migrazione ai BLOB"
 msgid "Cancel"
 msgstr "Annulla"
 
-#: ../profiles/default/registry.xml
+#: ../profiles/new-collections-support/registry.xml
 msgid "Event type"
 msgstr "Tipo di evento"
 
@@ -40,13 +40,18 @@ msgstr "Migrazione delle immagini degli eventi"
 msgid "Migrate imaged event, making it use plone.app.blob"
 msgstr "Migra gli eventi con immagini, usando plone.app.blob"
 
-#: ../profiles/default/registry.xml
+#: ../profiles/new-collections-support/registry.xml
 msgid "Possible type of events"
 msgstr "Tipi possibili di eventi"
 
-#: ../profiles/default/registry.xml
+#: ../profiles/new-collections-support/registry.xml
 msgid "Text"
 msgstr "Testo"
+
+#. Default: "What"
+#: ../browser/imagedevent_view.pt:60
+msgid "event_what"
+msgstr "Cosa"
 
 #. Default: "Will be shown views that render content's images and in the event view itself"
 #: ../content/event.py:63

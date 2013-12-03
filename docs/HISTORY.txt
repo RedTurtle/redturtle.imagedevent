@@ -6,7 +6,7 @@ Changelog
 
 * Removed unused 'localLongTimeFormat' call in view [cekk]
 * Removed relateditems macro call in view. Now we use default Plone viewlet [cekk]
-
+* Fixed start/end date visualization in view [cekk]
 
 1.0.1 (2012-12-13)
 ------------------

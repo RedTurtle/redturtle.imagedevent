@@ -3,7 +3,7 @@
 import os, sys
 from setuptools import setup, find_packages
 
-version = '1.0.2'
+version = '1.0.3.dev0'
 
 install_requires = ['setuptools',
                     'archetypes.schemaextender']

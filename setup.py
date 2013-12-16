@@ -3,13 +3,10 @@
 import os, sys
 from setuptools import setup, find_packages
 
-version = '1.0.2.dev0'
+version = '1.0.2'
 
 install_requires = ['setuptools',
                     'archetypes.schemaextender']
-
-if sys.version_info < (2, 6):
-    install_requires.append('experimental.backportGS')
 
 tests_require=['zope.testing']
 
@@ -22,17 +19,17 @@ setup(name='redturtle.imagedevent',
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         'Framework :: Plone',
-        'Framework :: Plone :: 3.3',
         'Framework :: Plone :: 4.0',
         'Framework :: Plone :: 4.1',
         'Framework :: Plone :: 4.2',
+        'Framework :: Plone :: 4.3',
         'Development Status :: 5 - Production/Stable',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
       keywords='plone event image content plonegov',
       author='RedTurtle Technology',
-      author_email='sviluppoplone@redturtle.net',
+      author_email='sviluppoplone@redturtle.it',
       url='http://plone.org/products/redturtle.imagedevent',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),

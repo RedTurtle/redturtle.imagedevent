@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.2 (unreleased)
+1.0.2 (2013-12-16)
 ------------------
 
 * Removed unused 'localLongTimeFormat' call in view [cekk]
